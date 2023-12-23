@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .center {
+        @apply flex items-center justify-center;
+    }
+    .hero-layer {
+        @apply md:bg-black/70 text-white absolute top-0 left-0 right-0 bottom-0 md:shadow-stone-950 md:backdrop-blur-sm;
+        box-shadow: inset 0 10px 20px 0 #0c0a09;
+    }
+    .parpeltext {
+        @apply text-purple-600;
+    }
+    .container-sm {
+        @apply w-full max-w-[1080px] mx-auto;
+    }
+    .main {
+        background-image: url("/images/bg.webp");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .wallet-panel {
+        @apply flex justify-center bg-purple-950/15 px-2 md:px-5 py-5 md:py-7 rounded-md backdrop-blur-sm flex-col items-center gap-y-4;
+    }
+}
+
+@media screen(sm) {
+    ::-webkit-scrollbar {
+        @apply w-1.5 h-1.5;
+    }
+
+    ::-webkit-scrollbar-track {
+        @apply bg-black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply bg-purple-800 rounded-full;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-purple-700;
+    }
+}
