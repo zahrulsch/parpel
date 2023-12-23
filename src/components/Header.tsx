@@ -8,6 +8,7 @@ import {
     useFloating,
     useInteractions,
     useTransitionStyles,
+    FloatingOverlay,
 } from "@floating-ui/react"
 import { useState } from "react"
 import { AiOutlineMenu } from "react-icons/ai"
@@ -101,30 +102,35 @@ function Header(props: HeaderProps): JSX.Element {
             </header>
             {isMounted ? (
                 <FloatingPortal>
-                    <div
-                        className="z-[99] w-full"
-                        style={floatingStyles}
-                        ref={refs.setFloating}
-                        {...getFloatingProps()}
+                    <FloatingOverlay
+                        className="bg-stone-950/50 backdrop-blur-sm"
+                        lockScroll={false}
                     >
                         <div
-                            className="text-white bg-stone-950 sm:hidden"
-                            style={styles}
+                            className="z-[99] w-full"
+                            style={floatingStyles}
+                            ref={refs.setFloating}
+                            {...getFloatingProps()}
                         >
-                            <ul className="pb-3">
-                                {navs.map((nav) => (
-                                    <li
-                                        className="text-center block"
-                                        key={nav.href}
-                                    >
-                                        <a className="py-3 block" href="">
-                                            {nav.text}
-                                        </a>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div
+                                className="text-white bg-stone-950 sm:hidden"
+                                style={styles}
+                            >
+                                <ul className="pb-3">
+                                    {navs.map((nav) => (
+                                        <li
+                                            className="text-center block"
+                                            key={nav.href}
+                                        >
+                                            <a className="py-3 block" href="">
+                                                {nav.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+                    </FloatingOverlay>
                 </FloatingPortal>
             ) : null}
         </>

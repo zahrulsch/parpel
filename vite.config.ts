@@ -39,6 +39,7 @@ export default defineConfig({
             dirs: ["./src/utils/*.ts"],
         }),
     ],
+    base: "",
     build: {
         rollupOptions: {
             output: {
